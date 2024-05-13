@@ -1,0 +1,14 @@
+Operação =input('Digite a operação desejada (soma, sub, mult, div):')
+num1 = input('Digite um número:')
+num2 = input('Digite outro número:')
+if Operação == 'soma':
+   resultado = int(num1) + int(num2) 
+if Operação == 'sub':
+   resultado = int(num1) - int(num2)
+if Operação == 'mult':
+   resultado = int(num1) * int(num2)
+if Operação == 'div':
+   resultado = int(num1) / int(num2)  
+else:
+   'Operação não Suportada'
+print('O resultado é:' + str(resultado))
