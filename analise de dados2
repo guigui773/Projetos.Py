@@ -1,0 +1,62 @@
+import matplotlib.pyplot as plt
+
+dados = [
+  {
+    "empresa": "Intel",
+    "investimento_pd": 10000000000,
+    "lucro_anual": 5000000000
+  },
+  {
+    "empresa": "Microsoft",
+    "investimento_pd": 8000000000,
+    "lucro_anual": 4000000000
+  },
+  {
+    "empresa": "Apple",
+    "investimento_pd": 7000000000,
+    "lucro_anual": 3500000000
+  },
+  {
+    "empresa": "Amazon",
+    "investimento_pd": 6000000000,
+    "lucro_anual": 3000000000
+  },
+  {
+    "empresa": "Alphabet",
+    "investimento_pd": 5000000000,
+    "lucro_anual": 2500000000
+  },
+  {
+    "empresa": "Samsung",
+    "investimento_pd": 4000000000,
+    "lucro_anual": 2000000000
+  },
+  {
+    "empresa": "Huawei",
+    "investimento_pd": 3000000000,
+    "lucro_anual": 1500000000
+  },
+  {
+    "empresa": "Sony",
+    "investimento_pd": 2000000000,
+    "lucro_anual": 1000000000
+  },
+  {
+    "empresa": "Toyota",
+    "investimento_pd": 1000000000,
+    "lucro_anual": 500000000
+  }
+]
+
+investimento_pd = [dado["investimento_pd"] for dado in dados]
+lucro_anual = [dado["lucro_anual"] for dado in dados]
+nomes = [dado["empresa"] for dado in dados]
+
+plt.scatter(investimento_pd, lucro_anual, label=nomes)
+
+plt.xlabel("Investimento em P&D (R$)")
+plt.ylabel("Lucro anual (R$)")
+plt.title('Investimento em P&D vs Lucro anual')
+plt.grid(True)
+
+plt.show()
