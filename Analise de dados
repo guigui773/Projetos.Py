@@ -1,0 +1,127 @@
+import json
+import matplotlib.pyplot as plt
+
+dados_json = '''
+{
+  "dados": [
+    {
+      "ano": 2019,
+      "regiao": "Norte",
+      "rendimento_medio": 1000,
+      "taxa_desemprego": 10
+    },
+    {
+      "ano": 2019,
+      "regiao": "Nordeste",
+      "rendimento_medio": 1100,
+      "taxa_desemprego": 9
+    },
+    {
+      "ano": 2019,
+      "regiao": "Sudeste",
+      "rendimento_medio": 1200,
+      "taxa_desemprego": 8
+    },
+    {
+      "ano": 2019,
+      "regiao": "Sul",
+      "rendimento_medio": 1300,
+      "taxa_desemprego": 7
+    },
+    {
+      "ano": 2020,
+      "regiao": "Norte",
+      "rendimento_medio": 1050,
+      "taxa_desemprego": 11
+    },
+    {
+      "ano": 2020,
+      "regiao": "Nordeste",
+      "rendimento_medio": 1120,
+      "taxa_desemprego": 10
+    },
+    {
+      "ano": 2020,
+      "regiao": "Sudeste",
+      "rendimento_medio": 1250,
+      "taxa_desemprego": 9
+    },
+    {
+      "ano": 2020,
+      "regiao": "Sul",
+      "rendimento_medio": 1350,
+      "taxa_desemprego": 8
+    },
+    {
+      "ano": 2021,
+      "regiao": "Norte",
+      "rendimento_medio": 1100,
+      "taxa_desemprego": 9.5
+    },
+    {
+      "ano": 2021,
+      "regiao": "Nordeste",
+      "rendimento_medio": 1150,
+      "taxa_desemprego": 9.2
+    },
+    {
+      "ano": 2021,
+      "regiao": "Sudeste",
+      "rendimento_medio": 1270,
+      "taxa_desemprego": 8.7
+    },
+    {
+      "ano": 2021,
+      "regiao": "Sul",
+      "rendimento_medio": 1375,
+      "taxa_desemprego": 8.3
+    },
+    {
+      "ano": 2022,
+      "regiao": "Norte",
+      "rendimento_medio": 1125,
+      "taxa_desemprego": 9.2
+    },
+    {
+      "ano": 2022,
+      "regiao": "Nordeste",
+      "rendimento_medio": 1180,
+      "taxa_desemprego": 9
+    },
+    {
+      "ano": 2022,
+      "regiao": "Sudeste",
+      "rendimento_medio": 1305,
+      "taxa_desemprego": 8.5
+    },
+    {
+      "ano": 2022,
+      "regiao": "Sul",
+      "rendimento_medio": 1400,
+      "taxa_desemprego": 8.1
+    }
+  ]
+}
+'''
+
+dados = json.loads(dados_json)
+
+regioes = set(dado["regiao"] for dado in dados["dados"])
+
+plt.figure(figsize=(12, 8))
+
+for regiao in regioes:
+    dados_regiao = [dado for dado in dados["dados"] if dado["regiao"] == regiao]
+    anos = [dado["ano"] for dado in dados_regiao]
+    rendimentos = [dado["rendimento_medio"] for dado in dados_regiao]
+    taxas_desemprego = [dado["taxa_desemprego"] for dado in dados_regiao]
+
+    plt.scatter(rendimentos, taxas_desemprego, label=f'{regiao}', s=100)
+
+
+plt.xlabel('Rendimento Médio')
+plt.ylabel('Taxa de Desemprego')
+plt.title('Rendimento Médio vs. Taxa de Desemprego por Região (2019-2022)')
+plt.grid(True)
+plt.legend()
+plt.show()
