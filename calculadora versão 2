@@ -1,0 +1,47 @@
+
+def calculadora (operacao):
+    def soma (a, b):
+        return a + b
+    
+    def sub (a, b):
+        return a - b
+    
+    def mult (a, b):
+        return a * b
+    
+    def div (a, b):
+        return a / b
+    
+    def pot (a, b):
+        return a ** b
+    
+    if operacao == "soma":
+        return soma
+    
+    elif operacao == "sub":
+        return sub
+    
+    elif operacao == "mult" :
+        return mult
+    
+    elif operacao == "div":
+        return div
+    
+    elif operacao == "pot" :
+        return pot
+    
+    else :
+        return "erro na operação"   
+
+calculadora2 = input("Diga qual operação soma, sub, mult, div, pot: ")
+n2 = int(input("Digite numero da operação: "))
+n3 = int(input("Digite numero da operação: "))
+
+funcao = calculadora(calculadora2)
+
+if callable(funcao):
+    resultado = funcao(n2, n3)
+else:
+    resultado = funcao
+
+print(resultado)
