@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod, abstractclassmethod
+from abc import ABC, abstractmethod
 import datetime
 
 class Cliente:
@@ -146,3 +146,7 @@ class Deposito(Transacao):
         sucesso_transacao = conta.depositar(self.valor)
         if sucesso_transacao:
             conta.historico.adicionar_transacao(self)
+
+# Exemplo de uso
+pessoa = PessoaFisica("João", "1990-01-01", "123456789", "Rua ABC, 123")
+conta_corrente = ContaCorrente.n
